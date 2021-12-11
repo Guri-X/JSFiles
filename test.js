@@ -79,6 +79,8 @@ function sendData(clickEvent) {
         "click_event": clickEvent
     }
 
+    console.log("data", data)
+
     return data
 }
 

@@ -64,4 +64,4 @@ function sendData() {
     return data
 }
 
-sendData()
+console.log(sendData())

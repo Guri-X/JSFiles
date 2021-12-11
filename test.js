@@ -57,7 +57,7 @@ function getSourceDetails() {
     return data
 }
 
-function sendData(clickEvent) {
+function sendData(clickEvent=null) {
     let track_id = getTrackingId()
     let source_details = getSourceDetails()
 
@@ -79,8 +79,6 @@ function sendData(clickEvent) {
         "click_event": clickEvent
     }
 
-    console.log("data", data)
-
     return data
 }
 
@@ -92,3 +90,5 @@ if( class_list.contains("product-form__submit"))
        console.log(sendData(e.target.innerText))
     }
 })
+
+console.log(sendData())

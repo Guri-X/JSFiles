@@ -57,6 +57,19 @@ function getSourceDetails() {
     return data
 }
 
+function assignTags() {
+    keywords_list = ["product"]
+    for (let i=0; i < keywords_list.length; i++) {
+        keyword_check = location.href.match(/keywords_list[i]/)
+        if (keyword_check > -1) {
+            return keywords_list[i]
+        } else {
+            return null
+        }
+    }
+
+}
+
 function sendData(clickEvent=null) {
     let track_id = getTrackingId()
     let source_details = getSourceDetails()
@@ -65,6 +78,7 @@ function sendData(clickEvent=null) {
     var date = new Date().toISOString().slice(0, 10);
     var time = new Date().toLocaleTimeString();
     var page_url = window.location.href
+    var tag = assignTags()
 
     data = {
         "tracking_id": track_id,
@@ -76,7 +90,8 @@ function sendData(clickEvent=null) {
         "date": date,
         "time": time,
         "page_url": page_url,
-        "click_event": clickEvent
+        "click_event": clickEvent,
+        "tag": tag
     }
 
     return data
@@ -85,6 +100,7 @@ function sendData(clickEvent=null) {
 // Click Events
 document.addEventListener("click", e => {
 class_list = e.target.classList
+console.log(class_list)
 if( class_list.contains("product-form__submit"))
     {
        console.log(sendData(e.target.innerText))

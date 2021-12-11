@@ -1,3 +1,4 @@
+// Get Cookie 
 function getCookie(c_name) {
     let dc = document.cookie;
     let prefix = c_name + "=";
@@ -18,15 +19,14 @@ function getCookie(c_name) {
     return decodeURI(dc.substring(begin + prefix.length, end));
 }
 
-function createCookie() {
-    var myCookie = getCookie("tracking_id");
+function checkTrackCookieStatus() {
+    var myCookie = getCookie("tracking_id"); // Checking if the tracking cookie exists
 
     if (myCookie == null) {
         document.cookie = "tracking_id=" + "_" + Math.random().toString(36).slice(2);
     }
     else {
-        pass
     }
 }
 
-createCookie()
+checkTrackCookieStatus()

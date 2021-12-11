@@ -58,10 +58,10 @@ function getSourceDetails() {
 }
 
 function assignTags() {
-    keywords_list = ["product"]
+    keywords_list = ["product", "cart"]
     for (let i=0; i < keywords_list.length; i++) {
-        keyword_check = location.href.match(/keywords_list[i]/)
-        if (keyword_check > -1) {
+        url = window.location.href;
+        if( url.match(/keyword[i]/gi) ) {
             return keywords_list[i]
         } else {
             return null

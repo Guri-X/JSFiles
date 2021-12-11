@@ -89,6 +89,6 @@ document.addEventListener("click", e => {
 class_list = e.target.classList
 if( class_list.contains("product-form__submit"))
     {
-       clickEvent = sendData(e.target.innerText)
+       console.log(sendData(e.target.innerText))
     }
 })

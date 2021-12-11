@@ -59,9 +59,13 @@ function getSourceDetails() {
 
 function getClickEvents() {
     document.addEventListener("click", e => {
-        console.log(e)
+        console.log(e.target)
     })
 }
+
+document.addEventListener("click", e => {
+        console.log(e.target)
+    })
 
 function sendData() {
     let track_id = getTrackingId()

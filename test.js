@@ -40,12 +40,18 @@ function getSourceDetails() {
     current_url = window.location.href
     source = new URL(location.href).searchParams.get("utm_source")    
     campaign = new URL(location.href).searchParams.get("utm_campaign")
+    medium = new URL(location.href).searchParams.get("utm_medium")
+    content = new URL(location.href).searchParams.get("utm_content")
+    keyword = new URL(location.href).searchParams.get("utm_term")
 
     if (!source) source = "direct"
 
     data = {
         "source": source,
-        "campaign": campaign
+        "campaign": campaign,
+        "medium": medium,
+        "content": content,
+        "keyword": keyword
     }
 
     return data
@@ -55,10 +61,19 @@ function sendData() {
     let track_id = getTrackingId()
     let source_details = getSourceDetails()
 
+    //Date and Time
+    var date = new Date().toISOString().slice(0, 10);
+    var time = new Date().toLocaleTimeString();
+
     data = {
         "tracking_id": track_id,
         "source": source_details['source'],
-        "campaign": source_details['campaign']
+        "campaign": source_details['campaign'],
+        "medium": source_details['medium'],
+        "content": source_details['content'],
+        "keyword": source_details['keyword'],
+        "date": date,
+        "time": time
     }
 
     return data

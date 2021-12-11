@@ -1,10 +1,32 @@
-// console.log("My script is working")
-// alert("My script is working")
-
-// Fetching Cookies
 function getCookie(c_name) {
-    let x = document.cookie;
-    return x
+    let dc = document.cookie;
+    let prefix = c_name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+
+    return decodeURI(dc.substring(begin + prefix.length, end));
 }
 
-console.log("tracking_id", getCookie("tracking_id"))
+function createCookie() {
+    var myCookie = getCookie("tracking_id");
+
+    if (myCookie == null) {
+        document.cookie = "tracking_id=" + "_" + Math.random().toString(36).slice(2);
+    }
+    else {
+        pass
+    }
+}
+
+createCookie()

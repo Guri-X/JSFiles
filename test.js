@@ -57,21 +57,11 @@ function getSourceDetails() {
     return data
 }
 
-function getClickEvents() {
-    document.addEventListener("click", e => {
-        console.log(e.target)
-    })
-}
-
-document.addEventListener("click", e => {
-        console.log(e.target)
-    })
-
-function sendData() {
+function sendData(clickEvent) {
     let track_id = getTrackingId()
     let source_details = getSourceDetails()
 
-    //Date and Time
+    // Date and Time
     var date = new Date().toISOString().slice(0, 10);
     var time = new Date().toLocaleTimeString();
     var page_url = window.location.href
@@ -85,10 +75,18 @@ function sendData() {
         "keyword": source_details['keyword'],
         "date": date,
         "time": time,
-        "page_url": page_url
+        "page_url": page_url,
+        "click_event": clickEvent
     }
 
     return data
 }
 
-console.log(sendData())
+// Click Events
+document.addEventListener("click", e => {
+class_list = e.target.classList
+if( class_list.contains("product-form__submit"))
+    {
+       clickEvent = sendData(e.target.innerText)
+    }
+})

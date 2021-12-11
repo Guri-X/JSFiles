@@ -57,6 +57,12 @@ function getSourceDetails() {
     return data
 }
 
+function getClickEvents() {
+    document.addEventListener("click", e => {
+        console.log(e)
+    })
+}
+
 function sendData() {
     let track_id = getTrackingId()
     let source_details = getSourceDetails()
@@ -64,6 +70,7 @@ function sendData() {
     //Date and Time
     var date = new Date().toISOString().slice(0, 10);
     var time = new Date().toLocaleTimeString();
+    var page_url = window.location.href
 
     data = {
         "tracking_id": track_id,
@@ -73,7 +80,8 @@ function sendData() {
         "content": source_details['content'],
         "keyword": source_details['keyword'],
         "date": date,
-        "time": time
+        "time": time,
+        "page_url": page_url
     }
 
     return data

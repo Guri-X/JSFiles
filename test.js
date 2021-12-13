@@ -73,6 +73,15 @@ function assignTags() {
     return tag_list
 }
 
+function getLocationDetails() {
+    fetch("https://api.ipgeolocation.io/ipgeo?apiKey=" + "254a0a5bbce04fc49eb31a620fcb59d6")
+    .then((response) => {
+        console.log(JSON.stringify(response))
+        return JSON.stringify(response)
+    }).catch(err => console.error(err));
+
+}
+
 function sendData(clickEvent=null) {
     let track_id = getTrackingId()
     let source_details = getSourceDetails()
@@ -85,6 +94,7 @@ function sendData(clickEvent=null) {
     var os = navigator.platform
     var screenWidth = window.screen.width
     var screenHeight = window.screen.height
+    var location = getLocationDetails()
 
     data = {
         "tracking_id": track_id,
@@ -99,7 +109,12 @@ function sendData(clickEvent=null) {
         "click_event": clickEvent,
         "tag": tag,
         "os": os,
-        "screen_resolution": screenWidth + " x " + screenHeight
+        "screen_resolution": screenWidth + " x " + screenHeight,
+        "ip": location['ip'],
+        "isp": location['isp'],
+        "country": location['country_name'],
+        "state": location['state_prov'],
+        "city": location['city'] 
     }
 
     return data
@@ -111,5 +126,5 @@ class_list = e.target.classList
 console.log(sendData(e.target.innerText))
 })
 
-// console.log("navigator", screen)
-console.log(sendData())
+console.log(getLocationDetails())
+// console.log(sendData())

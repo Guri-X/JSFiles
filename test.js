@@ -103,12 +103,8 @@ function sendData(clickEvent=null) {
 // Click Events
 document.addEventListener("click", e => {
 class_list = e.target.classList
-console.log(class_list)
-if( class_list.contains("product-form__submit"))
-    {
-       console.log(sendData(e.target.innerText))
-    }
+console.log(sendData(e.target.innerText))
 })
 
-// console.log(assignTags())
+// console.log(navigator)
 console.log(sendData())

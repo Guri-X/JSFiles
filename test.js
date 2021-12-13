@@ -82,7 +82,7 @@ function sendData(clickEvent=null) {
     var time = new Date().toLocaleTimeString();
     var page_url = window.location.href
     var tag = assignTags()
-    var platform = navigator.platform
+    var os = navigator.platform
     var screenWidth = window.screen.width
     var screenHeight = window.screen.height
 
@@ -98,7 +98,7 @@ function sendData(clickEvent=null) {
         "page_url": page_url,
         "click_event": clickEvent,
         "tag": tag,
-        "platform": platform,
+        "os": os,
         "screen_resolution": screenWidth + " x " + screenHeight
     }
 

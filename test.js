@@ -82,6 +82,9 @@ function sendData(clickEvent=null) {
     var time = new Date().toLocaleTimeString();
     var page_url = window.location.href
     var tag = assignTags()
+    var platform = navigator.platform
+    var screenWidth = window.screen.width
+    var screenHeight = window.screen.height
 
     data = {
         "tracking_id": track_id,
@@ -94,7 +97,9 @@ function sendData(clickEvent=null) {
         "time": time,
         "page_url": page_url,
         "click_event": clickEvent,
-        "tag": tag
+        "tag": tag,
+        "platform": platform,
+        "screen_resolution": screenWidth + " x " + screenHeight
     }
 
     return data
@@ -106,5 +111,5 @@ class_list = e.target.classList
 console.log(sendData(e.target.innerText))
 })
 
-// console.log(navigator)
+// console.log("navigator", screen)
 console.log(sendData())

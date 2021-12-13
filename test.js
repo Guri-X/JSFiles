@@ -58,16 +58,19 @@ function getSourceDetails() {
 }
 
 function assignTags() {
-    keywords_list = ["product", "cart"]
+    keywords_list = ["product", "cart", "collection", "contact", "checkout"]
+    tag_list = []
     for (let i=0; i < keywords_list.length; i++) {
         url = window.location.href;
-        if( url.match(/keyword[i]/gi) ) {
-            return keywords_list[i]
+        if( url.match(keywords_list[i]) ) {
+            tag_list.push(keywords_list[i])
         } else {
-            return null
+            tag_list.push(null)
         }
     }
+    tag_list = tag_list.filter(t => t)[0]
 
+    return tag_list
 }
 
 function sendData(clickEvent=null) {
@@ -107,4 +110,5 @@ if( class_list.contains("product-form__submit"))
     }
 })
 
+// console.log(assignTags())
 console.log(sendData())

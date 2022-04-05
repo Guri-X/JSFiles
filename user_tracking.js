@@ -102,7 +102,6 @@
             visitDuration = startVisitDuration()+(Date.now()-timerStart);
             localStorage.setItem('visit_duration',visitDuration);
             timerStart = parseInt(Date.now());
-            // console.log(parseInt(visitDuration/1000));
         },1000);
     }
 
@@ -143,7 +142,6 @@
         var time = new Date().toLocaleTimeString();
         var pageUrl = window.location.href;
         var tag = assignTags();
-        console.log("tag", tag)
         var os = navigator.platform;
         var screenWidth = window.screen.width;
         var screenHeight = window.screen.height;
@@ -186,7 +184,7 @@
                 "page_duration": parseInt(pageDuration/1000)
             }
         }
-        console.log("senddata", data)
+        console.log("data", data)
         fetch("http://127.0.0.1:9000/shopifyV2_extras/user_tracking/", {
             method: "POST",
             headers: {'Content-Type': 'application/json'}, 

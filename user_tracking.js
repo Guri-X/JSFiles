@@ -76,19 +76,6 @@
         return tagName
     }
 
-    // function getLocationDetails() {
-    //     const url = "https://api.ipgeolocation.io/ipgeo?apiKey=254a0a5bbce04fc49eb31a620fcb59d6"
-    //     fetch(url)
-    //         .then((response) => { 
-        //             return response.json().then((data) => {
-            //                 let geo_data = data;
-            //                 console.log("geo_data", geo_data);
-            //             }).catch((err) => {
-                //                 console.log(err);
-                //             }) 
-                //         });
-                //     console.log("geo_data", geo_data);
-                // };
     var geoLocation = "";
     async function getLocationDetails() {
         const url = "https://api.ipgeolocation.io/ipgeo?apiKey=254a0a5bbce04fc49eb31a620fcb59d6";
@@ -96,30 +83,6 @@
         let data = await response.json();
         return data;
     }
-
-    // function getVisitDuration() {
-    //     var timeSpent = 0;
-    //     var timer;
-    //     window.onload = function() {
-    //         var startTime = new Date();
-    //         timer = setInterval( function() { timeSpent++; }, 998 );
-    //     };
-    //     window.onunload = function() {
-    //         var endTime = new Date();
-    //         timer = clearInterval( timer );
-    //     }
-    //     localStorage.setItem("visit_duration", endTime - startTime);
-    // }
-
-    // var startTime = new Date();    
-    // $(window).unload(function() {
-    //   var endTime = new Date();
-    //   console.log(startTime, endTime)
-    //   $.ajax({
-    //     url: "yourpage.php",
-    //     data: {start: startTime, end: endTime}
-    //   });
-    // });
 
     // Calculate Page Duration
     var timer;

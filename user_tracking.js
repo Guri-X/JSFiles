@@ -147,15 +147,15 @@
         var screenHeight = window.screen.height;
         geoLocation = await getLocationDetails();
         var clickEvent = localStorage.getItem("click_event");
+        if (location.reload) {
+            localStorage.removeItem("click_event");
+        }
         var shopName = location.hostname
         if (clickEvent != null) {
             clickEvent = "Clicked on " + clickEvent
         }
         else {
             clickEvent = "Refreshed Page"
-        }
-        location.onunload = function() {
-            localStorage.removeItem("click_event");
         }
         var pageDuration = localStorage.getItem("visit_duration");
         localStorage.setItem('visit_duration', 0);
